@@ -1,0 +1,1576 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Giải Pháp Khí Bán Dẫn UHP | PHUC THANH JSC</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+    <style>
+        /* ======================\
+           THEME VARIABLES
+           ====================== */
+        :root{
+            /* Màu chủ đạo mới: Xanh nhạt (Light Blue/Cyan) */
+            --primary-color: #00bcd4; /* Xanh ngọc - Cyan */
+            --secondary-color: #0097a7; /* Xanh đậm hơn */
+            --text-color: #343a40;
+            --light-bg: #f5f5f5; /* Nền trắng xám nhạt */
+            --white: #ffffff;
+            --dark-bg: #212529;
+            --shadow-light: 0 2px 4px rgba(0,0,0,0.05);
+            --shadow-medium: 0 6px 15px rgba(0,0,0,0.1);
+            --max-content-width: 1200px;
+            --font-stack: 'Inter', sans-serif;
+        }
+
+        /* ======================\
+           GLOBAL STYLES
+           ====================== */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        body {
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+                 Roboto, "Helvetica Neue", Arial, sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--white);
+            scroll-behavior: smooth;
+        }
+        .container {
+            max-width: var(--max-content-width);
+            margin: 0 auto;
+            padding: 0 20px;
+            color: purple;
+        }
+        section {
+            padding: 80px 0;
+            position: relative;
+            color: purple;
+        }
+        h1, h2, h3, h4 {
+            color: purple;
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+        h2 {
+            font-size: 2.5em;
+            text-align: center;
+            border-bottom: 3px solid var(--primary-color);
+            display: block;
+            width: fit-content;
+            padding-bottom: 10px;
+            margin: 0 auto 60px auto;
+        }
+        p {
+            margin-bottom: 15px;
+        }
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: background-color 0.3s, transform 0.3s;
+        }
+        .btn-primary {
+            background-color: purple;
+            color: white;
+            border: 2px solid var(--primary-color);
+        }
+        .btn-primary:hover {
+            background-color: lightblue;
+            color: purple;
+            transform: translateY(-2px);
+        }
+        .cert-footer-text {
+            font-size: 0.9em;
+            margin-top: 15px;
+            font-style: italic;
+        }
+
+        /* ======================\
+           HEADER & NAVIGATION (Đã sửa logo)
+           ====================== */
+        header {
+            background: url('https://images2.alphacoders.com/764/thumb-1920-764115.jpg');
+            background-repeat: no-repeat;
+            background-size: cover;
+            color: var(--white);
+            padding: 15px 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: var(--shadow-medium);
+        }
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .logo a {
+            color: red;
+            text-decoration: none;
+        }
+        /* QUY TẮC MỚI CHO LOGO ĐÃ CHỈNH SỬA */
+        .logo img {
+            height: 120px; /* Chiều cao tối đa của logo */
+            width: 200px; /* Giữ tỷ lệ */
+            display: block;
+        }
+        nav {
+            display: flex;
+            align-items: center;
+        }
+        nav ul {
+            list-style: none;
+            display: flex;
+            margin-right: 30px; /* Khoảng cách giữa menu và language switcher */
+        }
+        nav ul li {
+            margin-left: 30px;
+        }
+        nav ul li a {
+            color: purple;
+            text-decoration: none;
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+                 Roboto, "Helvetica Neue", Arial, sans-serif;
+            font-size: 20px;
+            font-weight: 500;
+            padding: 5px 0;
+            transition: color 0.3s;
+        }
+        nav ul li a:hover {
+            color: blue;
+            border-bottom: 2px solid var(--primary-color);
+        }
+        
+        /* Language Switcher Styles */
+        .language-switcher {
+            margin-left: 20px;
+            position: relative;
+        }
+
+        .language-switcher select {
+            padding: 8px 10px;
+            border-radius: 5px;
+            background-color: purple;
+            color: var(--white);
+            border: none;
+            cursor: pointer;
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+                 Roboto, "Helvetica Neue", Arial, sans-serif;
+            font-size: 1em;
+            appearance: none; /* Hide default arrow */
+            background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23ffffff' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+            background-repeat: no-repeat;
+            background-position: right 10px center;
+            background-size: 15px;
+            padding-right: 35px; /* Make space for custom arrow */
+        }
+        
+        .language-switcher option {
+            color: var(--text-color);
+            background-color: var(--white);
+        }
+
+        /* ======================\
+           HERO SECTION
+           ====================== */
+        #hero {
+            /* Dùng ảnh placeholder tĩnh */
+            background: url('https://picsum.photos/1920/1080?random=1') no-repeat center center/cover;
+            height: 80vh;
+            display: flex;
+            align-items: center;
+            color: red;
+            text-align: center;
+            position: relative;
+        }
+        #hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.5);
+        }
+        .hero-content {
+            z-index: 10;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 40px;
+        }
+        .hero-content h1 {
+            font-size: 3.5em;
+            margin-bottom: 20px;
+            color: lightblue;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+        .hero-content p {
+            font-size: 1.3em;
+            margin-bottom: 40px;
+            color: lightblue ;
+        }
+
+        /* ======================\
+           PRODUCTS SECTION
+           ====================== */
+        #products {
+            background-color: lightskyblue; /* ĐÃ SỬA TẠI ĐÂY */
+            text-align: center;
+        }
+        .product-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        .card {
+            background-color: var(--white);
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: var(--shadow-medium);
+            text-align: left;
+            transition: transform 0.3s, box-shadow 0.3s;
+            margin-bottom: 30px;
+        }
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+        }
+        .card i {
+            font-size: 2.5em;
+            color: var(--primary-color);
+            margin-bottom: 15px;
+        }
+        .card h3 {
+            font-size: 1.5em;
+            margin-bottom: 10px;
+        }
+        .card ul {
+            list-style: none;
+            padding: 0;
+            margin-top: 10px;
+        }
+        .card ul li {
+            padding-left: 1.5em;
+            text-indent: -1.5em;
+        }
+        .card ul li::before {
+            content: "✓";
+            color: var(--secondary-color);
+            font-weight: bold;
+            display: inline-block;
+            width: 1.5em;
+        }
+
+        /* ======================\
+           TECHNOLOGY SECTION (ĐÃ SỬA FULL-WIDTH BACKGROUND)
+           ====================== */
+        #technology {
+            background: url('https://images2.alphacoders.com/764/thumb-1920-764115.jpg') no-repeat center center/cover; /* Áp dụng background full-width */
+            color: purple; /* Đặt màu chữ cho toàn bộ section */
+            padding: 80px 0; /* Giữ padding section */
+            text-align: center;
+        }
+        /* Điều chỉnh màu sắc nội dung bên trong để dễ nhìn trên nền tối */
+        #technology h2 {
+            color: purple; 
+            border-bottom: 3px solid var(--white);
+        }
+        .tech-slogan {
+            font-size: 1.2em;
+            max-width: 800px;
+            margin: 0 auto 50px;
+            color: purple; /* Đặt màu chữ thành trắng */
+        }
+        
+        /* CSS MỚI CHO LƯỚI 3 CỘT CHỨNG NHẬN */
+        .cert-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr); /* Tạo 3 cột bằng nhau */
+            gap: 30px;
+            margin-top: 40px;
+            margin-bottom: 60px; /* Thêm khoảng cách dưới cho khối mới */
+        }
+        
+        .cert-box {
+            background-color: var(--white);
+            padding: 30px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            box-shadow: var(--shadow-medium);
+            transition: transform 0.3s, box-shadow 0.3s;
+            text-align: center; /* Căn giữa nội dung trong box */
+        }
+        
+        .cert-box:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+        }
+        
+        .cert-box img {
+            width: 100%;
+            height: 200px; /* Chiều cao cố định cho ảnh */
+            object-fit: contain; /* Đảm bảo hình ảnh vừa khung */
+            display: block;
+            margin-bottom: 15px;
+        }
+        
+        .feature-box {
+            /* flex: 1; -> Xóa vì không còn trong flex container */
+            padding: 30px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            transition: background-color 0.3s;
+            background-color: var(--white); /* Đặt lại nền trắng cho box */
+            color: purple; /* Đặt lại màu chữ tối cho box */
+        }
+        .feature-box h4 {
+            color: purple; /* Giữ màu tím cho H4 trong box */
+        }
+        .feature-box:hover {
+            background-color: #f0f0f0;
+        }
+        .feature-box i {
+            font-size: 3em;
+            color: var(--secondary-color);
+            margin-bottom: 15px;
+        }
+        .feature-box h4 {
+            font-size: 1.3em;
+            margin-bottom: 10px;
+        }
+        .feature-box .vertical-cert-list {
+            list-style: none;
+            padding: 0;
+            margin: 10px 0 0 0;
+            text-align: left;
+        }
+        .feature-box .vertical-cert-list li {
+            margin-bottom: 10px;
+            padding: 5px 0;
+            border-bottom: 1px dashed #ddd;
+        }
+        .feature-box .vertical-cert-list li:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+        }
+        .feature-box .vertical-cert-list .cert-name {
+            display: block;
+            font-weight: 700;
+            color: var(--dark-bg);
+            font-size: 1.1em;
+            margin-bottom: 2px;
+        }
+        .feature-box .vertical-cert-list .cert-desc {
+            display: block;
+            color: #6c757d;
+            font-size: 0.9em;
+        }
+
+
+        /* ======================\
+           PROFILE SECTION
+           ====================== */
+        #profile {
+            background-color: lightskyblue;
+            text-align: center;
+            /* Section này hiện đang nằm trong #technology, không cần padding vì #technology đã có */
+            padding-top: 0;
+            padding-bottom: 0; 
+        }
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            margin-bottom: 60px;
+        }
+        .stat-box {
+            background-color: var(--white);
+            padding: 25px;
+            border-radius: 8px;
+            box-shadow: var(--shadow-light);
+        }
+        .stat-box .stat-value {
+            font-size: 2.5em;
+            font-weight: 800;
+            color:purple;
+            margin-bottom: 5px;
+        }
+        .stat-box .stat-label {
+            font-size: 1.1em;
+            color: blue;
+        }
+        .certs-table-container {
+            max-width: var(--max-content-width);
+            margin: 0 auto;
+            text-align: left;
+        }
+        .cert-note {
+            margin-top: 20px;
+            font-style: italic;
+            color: purple;
+            text-align: right;
+        }
+
+        /* ======================\
+           CAROUSEL STYLES
+           ====================== */
+        .carousel-container {
+            position: relative;
+            overflow: hidden;
+            max-width: 100%;
+            margin: 40px auto 60px auto;
+            border-radius: 8px;
+            box-shadow: var(--shadow-medium);
+            background-color: var(--dark-bg);
+        }
+
+        .carousel-slide {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+            width: 400%; /* 4 images * 100% */
+            height: 1300px; /* Định chiều cao cố định */
+        }
+
+        .carousel-slide .slide-image {
+            width: 100%;  
+            height: 100%;
+            display: flex; /* Cần thiết để căn giữa nội dung feature-slide-content */
+            align-items: center;
+            justify-content: center;
+            overflow: hidden; /* Giúp ảnh không tràn ra ngoài slide-image div */
+        }
+        
+        /* CERTIFICATION SLIDE */
+        .cert-carousel {
+            background: transparent;
+            box-shadow: none;
+        }
+
+        .cert-slide {
+            display: flex;
+            width: 150%;
+            transition: transform 0.6s ease;
+            height: 600px;
+        }
+
+        .slide-item {
+            width: 1000%;
+            /* background: lightskyblue; */
+            margin: 0 10px;
+            border-radius: 10px;
+            padding: 25px;
+            /* box-shadow: var(--shadow-medium); */
+            text-align: center;
+
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .slide-item img {
+            height: 500px;
+            width: 100%;
+            object-fit: contain;
+            margin-bottom: 70px;
+        }
+
+        .slide-item h4 {
+            font-size: 30px;
+            color: purple;
+            margin-bottom: 10px;
+        }
+
+        .slide-item p {
+            font-size: 17px;
+            color: blue;
+        }
+
+        /* QUAN TRỌNG: Đảm bảo hình ảnh lấp đầy slide-image div */
+        .carousel-slide .slide-image img { 
+            width: 100%;
+            height: 100%;
+            object-fit: cover; /* Đảm bảo ảnh cover hết box */
+            display: block;
+        }
+
+        /* Style cho các slide chứa nội dung (như ISO/Lab) */
+        .feature-slide-content {
+            background-color: var(--white); /* Nền trắng cho nội dung */
+            color: var(--text-color);
+            padding: 20px;
+            box-sizing: border-box;
+            width: 100%;
+            display: flex; 
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* Điều chỉnh .certs-carousel để phù hợp với số slide mới (4 slide) */
+        .certs-carousel .carousel-slide {
+            width: 400%; 
+            height: 400px; /* Chiều cao cố định: Đã đồng nhất với carousel Factory */
+        }
+        
+        /* Nút điều hướng (Mũi tên) */
+        .prev-btn, .next-btn {
+            position: absolute;
+            top: 50% ;
+            transform: translateY(-50%);
+            background: lightskyblue;
+            color: purple;
+            border: none;
+            padding: 15px 20px;
+            cursor: pointer;
+            font-size: 28px;
+            font-weight: bold;
+            z-index: 10;
+            border-radius: 50%;
+            transition: background-color 0.3s;
+        }
+
+        .prev-btn:hover, .next-btn:hover {
+            background-color: lightskyblue;
+        }
+
+        .prev-btn {
+            left: 20px;
+        }
+
+        .next-btn {
+            right: 20px;
+        }
+
+        /* Styling cho Mũi tên hai chiều ngăn cách */
+        .two-way-arrow {
+            text-align: center;
+            font-size: 40px;
+            color: purple; /* Giữ màu tím theo theme */
+            margin: 20px 0;
+            border-top: 1px solid #e0e0e0;
+            padding-top: 10px;
+        }
+
+
+        /* ======================\
+           STATIC IMAGE BLOCK (Được giữ lại vì vẫn còn sử dụng ở các section khác)
+           ====================== */
+        .static-image-block {
+            max-width: 100%;
+            margin: 40px auto 60px auto;
+            border-radius: 8px;
+            box-shadow: var(--shadow-medium);
+            overflow: hidden;
+            height: 400px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #343a40; /* Dark background for visibility */
+            color: lightblue;
+            font-size: 1.5em;
+            text-align: center;
+            /* ĐÃ CHỈNH SỬA: Thay đổi 'cover' thành 'contain' để hình ảnh vừa khung */
+            background: url('diagram.png') no-repeat center center/contain;
+            position: relative;
+        }
+        .static-image-block::before {
+             content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.4);
+        }
+        .static-image-block span {
+            z-index: 1;
+            padding: 15px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.8);
+        }
+
+        /* CHAT LUONG & CONG NGHE - Đã được gộp vào #technology */
+        .qualy {
+            /* Giữ định nghĩa này để không bị lỗi, nhưng không cần style background */
+        } 
+        .dia {
+          border: solid blue 2px;
+          width: 100.6%;
+        }
+
+        /* ======================\
+           CONTACT SECTION STYLES
+           ====================== */
+        #contact {
+            background-color: var(--white);
+            padding: 80px 0;
+            text-align: center;
+        }
+        .contact-content {
+            display: flex;
+            gap: 0;
+            align-items: stretch;
+            max-width: 600px;
+            margin: 0 auto;
+            border-radius: 12px;
+            box-shadow: var(--shadow-medium);
+            overflow: hidden;
+            text-align: left;
+           
+        }
+        .contact-info {
+            flex: 1;
+            background-color: lightskyblue;
+            color: purple;
+            padding: 40px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        .contact-info h4 {
+            color: purple;
+            font-size: 1.8em;
+            margin-bottom: 30px;
+            border-bottom: 2px solid var(--white);
+            padding-bottom: 10px;
+            align-self: flex-start;
+        }
+        .contact-info p {
+            font-size: 1.1em;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+        }
+        .contact-info i {
+            font-size: 1.5em;
+            margin-right: 15px;
+            color: blueviolet;
+        }
+        .contact-info p:first-child i {
+            align-self: flex-start;
+            margin-top: 5px;
+        }
+        .contact-form-container {
+            flex: 1.5;
+            padding: 40px;
+            background-color: var(--light-bg);
+        }
+        .contact-form-container h4 {
+            color: purple;
+            font-size: 1.8em;
+            margin-bottom: 30px;
+        }
+        .contact-form {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            color: purple;
+        }
+        .contact-form input[type="text"],
+        .contact-form input[type="email"],
+        .contact-form textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            font-family: var(--font-stack);
+            font-size: 1em;
+            transition: border-color 0.3s, box-shadow 0.3s;
+            color: purple;
+        }
+        .contact-form input:focus,
+        .contact-form textarea:focus {
+            border-color: purple;
+            box-shadow: 0 0 0 3px rgba(0, 188, 212, 0.25);
+            outline: none;
+        }
+        .contact-form textarea {
+            resize: vertical;
+            min-height: 120px;
+            color: purple;
+        }
+        .contact-form button[type="submit"] {
+            margin-top: 10px;
+            align-self: flex-start;
+            background-color: purple;
+            
+        }
+
+        /* ======================\
+           FOOTER STYLES
+           ====================== */
+        footer {
+            background: url('https://images2.alphacoders.com/764/thumb-1920-764115.jpg');
+            background-repeat: no-repeat;
+            background-size: cover;
+            padding: 20px 0;
+            font-size: 17px;
+            color: purple;
+        }
+        .footer-bottom {
+            text-align: center;
+        }
+        .footer-bottom p {
+            margin: 0;
+        }
+
+        /* ======================\
+           RESPONSIVE DESIGN
+           ====================== */
+        @media (max-width: 992px) {
+            h2 { font-size: 2em; }
+            .hero-content h1 { font-size: 3em; }
+            nav ul { display: none; }
+            .header-content { flex-direction: column; text-align: center; }
+            .header-content .logo { margin-bottom: 10px; }
+            .stats-grid { grid-template-columns: repeat(1, 1fr); }
+            .tech-features { flex-direction: column; }
+            .contact-content {
+                flex-direction: column;
+                border-radius: 8px;
+                box-shadow: none;
+                gap: 0;
+                background-color: var(--white);
+            }
+            .contact-info,
+            .contact-form-container {
+                border-radius: 0;
+                padding: 30px;
+            }
+            .contact-info {
+                border-radius: 8px 8px 0 0;
+            }
+            .contact-form-container {
+                border-radius: 0 0 8px 8px;
+                background-color: var(--light-bg);
+            }
+            .contact-form-container h4 {
+                color: var(--text-color);
+            }
+            .language-switcher {
+                /* Hiển thị khi menu chính ẩn */
+                margin-top: 10px;
+                margin-bottom: 10px;
+            }
+            /* Đảm bảo carousel hoạt động tốt trên thiết bị di động */
+            .prev-btn, .next-btn {
+                padding: 10px 12px;
+                font-size: 20px;
+            }
+            .carousel-slide {
+                height: 300px; /* Chiều cao nhỏ hơn cho di động */
+            }
+            /* Cập nhật Responsive cho Lưới Chứng nhận */
+            .cert-grid {
+                grid-template-columns: repeat(1, 1fr); /* 1 cột trên thiết bị nhỏ */
+            }
+        }
+
+        /* ======================\
+           CHATBOT AI VÀ WHATSAPP STYLES
+           ====================== */
+        /* Styling cho Nút WhatsApp */
+        .whatsapp-btn {
+            position: fixed;
+            bottom: 90px; /* Đặt phía trên nút Chatbot */
+            right: 20px;
+            background-color: #25D366; /* Màu xanh lá WhatsApp */
+            color: white;
+            border-radius: 50%;
+            width: 60px;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 30px;
+            text-decoration: none;
+            z-index: 1000;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s ease;
+        }
+        .whatsapp-btn:hover {
+            transform: scale(1.1);
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.4);
+        }
+        
+        /* Styling cho Chatbot Container (Popup) */
+        .chatbot-container {
+            position: fixed;
+            bottom: 90px;
+            right: 20px;
+            width: 300px;
+            height: 400px;
+            background-color: var(--white);
+            border-radius: 12px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+            z-index: 999;
+            display: none; /* Mặc định ẩn */
+            flex-direction: column;
+            overflow: hidden;
+            font-family: var(--font-stack);
+        }
+
+        .chatbot-header {
+            background-color: purple; /* Lấy màu chính từ theme */
+            color: white;
+            padding: 15px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 600;
+            cursor: pointer;
+        }
+
+        .chatbot-body {
+            flex-grow: 1;
+            padding: 10px;
+            overflow-y: auto;
+            background-color: var(--light-bg);
+        }
+        
+        .chatbot-footer {
+            border-top: 1px solid #ddd;
+            padding: 10px;
+            background-color: white;
+        }
+        
+        .chatbot-input {
+            width: calc(100% - 40px);
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        
+        .chatbot-send-btn {
+            width: 35px;
+            height: 35px;
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            border-radius: 50%;
+            margin-left: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        
+        .chatbot-send-btn:hover {
+            background-color: var(--secondary-color);
+        }
+
+        /* Message Styles */
+        .chat-message {
+            max-width: 85%;
+            margin-bottom: 10px;
+            padding: 8px 12px;
+            border-radius: 10px;
+            line-height: 1.4;
+        }
+        .user-message {
+            background-color: lightblue; /* Màu xanh nhạt */
+            color: var(--dark-bg);
+            align-self: flex-end;
+            margin-left: auto;
+        }
+        .ai-message {
+            background-color: var(--white);
+            color: var(--text-color);
+            align-self: flex-start;
+            margin-right: auto;
+            border: 1px solid #eee;
+        }
+        
+        /* Chatbot Toggle Button */
+        .chatbot-toggle-btn {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: purple; /* Màu chính của theme */
+            color: white;
+            border-radius: 50%;
+            width: 60px;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            cursor: pointer;
+            z-index: 1001; /* Trên WhatsApp */
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s ease;
+        }
+        
+        .chatbot-toggle-btn:hover {
+            transform: scale(1.1);
+        }
+
+        @media (max-width: 992px) {
+            .chatbot-container {
+                 width: 80%;
+                 max-width: 100%;
+                 height: 70vh;
+                 bottom: 10px;
+                 right: 10px;
+            }
+            .whatsapp-btn {
+                bottom: 80px; 
+                right: 10px;
+                width: 50px;
+                height: 50px;
+                font-size: 25px;
+            }
+            .chatbot-toggle-btn {
+                bottom: 10px;
+                right: 10px;
+                width: 50px;
+                height: 50px;
+                font-size: 20px;
+            }
+        }
+
+        @media (max-width: 768px) {
+    .cert-slide {
+        height: 360px;
+    }
+    .slide-item {
+        width: 100%;
+    }
+}
+
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container header-content">
+            <div class="logo">
+                <a href="https://phucthanhgroup.com/" target="_blank">
+                <img src="https://cdn.bitrix24.com/b28854747/landing/654/654ebc9ae06f9608f25efb83a9fbfb49/logo_removebg_preview_1x.png" alt="logo">
+                </a>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="https://phucthanhgroup.com/" data-key="nav_main">Trang Chủ</a></li>
+                    <li><a href="#products" data-key="nav_products">Sản phẩm</a></li>
+                    <li><a href="#technology" data-key="nav_technology">Công nghệ</a></li>
+                    <li><a href="https://www.slideshare.net/secret/bMJ7H4ulOtIXEY" target="blank" data-key="nav_profile">Hồ sơ</a></li>
+                    <li><a href="#contact" data-key="nav_contact">Liên hệ</a></li>
+                </ul>
+                <div class="language-switcher">
+                    <select id="language-select"> 
+                        <option>SELECT LANGUAGE</option>
+                        <option value="vi">Tiếng Việt</option>
+                        <option value="en">English</option>
+                        <option value="zh">中文 (Chinese)</option>
+                        <option value="ko">한국어 (Korean)</option>
+                    </select>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <section id="hero">
+        <div class="hero-content">
+            <h1 data-key="hero_title">SEEING IS BELIEVING</h1>
+            <p data-key="hero_subtitle">Phúc Thành cung cấp khí N2O tinh khiết, chất lượng cao (5.5N - 6N), đáp ứng tiêu chuẩn nghiêm ngặt của ngành công nghiệp khí bán dẫn .</p>
+            <a href="#contact" class="btn btn-primary" data-key="hero_cta">Tư Vấn Ngay</a>
+        </div>
+    </section>
+
+    <section id="products" class="container">
+        <h2 data-key="products_header">VỀ CHÚNG TÔI</h2>
+        <div class="product-cards">
+            <div class="card">
+                <i class="fa-solid fa-atom"></i>
+                <h3 data-key="prod_1_title">NHÀ MÁY ĐẦU TIÊN TẠI VIỆT NAM SẢN XUẤT ĐƯỢC KHÍ N2O VỚI ĐỘ TINH KHIẾT 99,9995%</h3>
+                <p data-key="prod_1_desc">Với mục tiêu theo đuổi chất lượng lý tưởng và nghiên cứu phát triển chuyên sâu, trở thành nhà sản xuất chuyên biệt N2O chất lượng cao, Phúc Thành đã trở thành công ty đầu tiên tại Việt Nam sản xuất hàng loạt thành công khí N2O tinh khiết.</p>
+                <ul>
+                    <li data-key="prod_1_feature_1">Qui trình sản xuất an toàn</li>
+                    <li data-key="prod_1_feature_2">Được ứng dụng trong nhiều lĩnh vực: Thực phẩm, Bán dẫn, Pin năng lượng mặt trời (Solar),...</li>
+                </ul>
+            </div>
+            <div class="card">
+                <i class="fa-solid fa-atom"></i>
+                <h3 data-key="prod_2_title">ĐÁP ỨNG CÁC TIÊU CHUẨN VÀ CÓ ĐẦY ĐỦ GIẤY PHÉP CHẤT LƯỢNG</h3>
+                <p data-key="prod_2_desc">Chúng tôi luôn cô gắng cho ra những sản phẩm chất lượng và đạt yêu cầu của khách .</p>
+                <ul>
+                    <li data-key="prod_2_feature_1">Giấy chứng nhận đăng ký đầu tư số 6550215785, cấp lần đầu ngày 02 tháng 07 năm 2019, cập nhật ngày 15 tháng 03 năm 2024 bởi Ban Quản lý các Khu công nghiệp Bắc Ninh</li>
+                    <li data-key="prod_2_feature_2">Giấy phép sản xuất, kinh doanh hóa chất hạn chế sản xuất, kinh doanh trong lĩnh vực công nghiệp, số 33/GP-BCT ngày 20/01/2020 của Bộ Công Thương</li>
+                </ul>
+            </div>
+            <div class="card">
+                <i class="fa-solid fa-atom"></i>
+                <h3 data-key="prod_3_title">HỢP TÁC VỚI NHỮNG ĐỐI TÁC HÀNG ĐẦU</h3>
+                <p data-key="prod_3_desc">Phúc Thành Việt Nam đã hợp tác chặt chẽ với các đối tác để đưa công nghệ tiên tiến vào hoạt động thông qua sự hợp tác chặt chẽ và bền bỉ.</p>
+                <ul>
+                    <li data-key="prod_3_feature_1">Trong giai đoạn triển khai, Phúc Thành Việt Nam đã tin tưởng lựa chọn Sumjin Environmental System Technology (SEST) để đảm nhiệm việc chế tạo và lắp đặt thiết bị sản xuất N20.</li>
+                    <li data-key="prod_3_feature_2">Sản xuất những đơn hàng lớn cho đối tác hàng đầu như: Linde, Nippon Sanso, SOL INDIA</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <section id="technology">
+        <div class="qualy container">
+            <h2 data-key="tech_header">Cam Kết Chất Lượng & Công Nghệ</h2>
+                    <p class="tech-slogan" data-key="tech_slogan">
+                    Quy trình sản xuất của chúng tôi tuân thủ các tiêu chuẩn quốc tế nghiêm ngặt.<br>
+                    Việc kiểm soát chất lượng được thực hiện liên tục ở mọi giai đoạn của quy trình sản xuất.
+                    </p>
+                    <img class="dia" src="">
+                    </div>
+                <div class="container">
+                <div class="carousel-container cert-carousel">
+                    <button class="prev-btn cert-prev">❮</button>
+                    <div class="carousel-slide cert-slide">
+                    <div class="slide-item">
+                    <img src="https://cdn.bitrix24.com/b28854747/landing/f65/f65d44b1f7cd1f34dfc74cb644abde4e/cc1_1x.jpg">
+                    <h4 data-key="cert_1_name">ISO 9001:2015</h4>
+                    <p class="cert-footer-text" data-key="cert_1_desc">Giấy Chứng nhận Hệ thống Quản lý Chất lượng</p>
+                    </div>
+                <div class="slide-item">
+                    <img src="https://cdn.bitrix24.com/b28854747/landing/df5/df5ae381800e440ad7b71d51519a8430/cc2_1x.jpg">
+                    <h4 data-key="cert_2_name">ISO 14001:2015</h4>
+                    <p class="cert-footer-text" data-key="cert_2_desc">Giấy Chứng nhận Hệ thống Quản lý Môi trường</p>
+                </div>
+                <div class="slide-item">
+                    <img src="https://cdn.bitrix24.com/b28854747/landing/db9/db968b111d9b7b72608cc3a7b4c78149/cc3_1x.jpg">
+                    <h4 data-key="cert_3_name">ISO 45001:2018</h4>
+                    <p class="cert-footer-text" data-key="cert_3_desc">Quản lý An toàn & Sức khoẻ nghề nghiệp</p>
+                </div>
+                <div class="slide-item">
+                    <img src="https://cdn.bitrix24.com/b28854747/landing/c57/c57f3b394d0d1f8251c7789d29027a6f/iso_22000_1x.png">
+                    <h4 data-key="cert_4_name">ISO 22000:2018</h4>
+                    <p class="cert-footer-text" data-key="cert_4_desc">Hệ thống Quản lý An toàn Thực phẩm</p>
+                </div>
+                <div class="slide-item">
+                    <img src="https://cdn.bitrix24.com/b28854747/landing/227/22768c0e33fff5ed4cfeb6dadd557688/haccp_1x.png">
+                    <h4 data-key="cert_5_name">HACCP</h4>
+                    <p class="cert-footer-text" data-key="cert_5_desc">Phân tích mối nguy & kiểm soát điểm tới hạn</p>
+                </div>
+        </div>
+
+
+<button class="next-btn cert-next">❯</button>
+</div>
+</div>
+
+            </div>
+        <section id="profile" class="container">
+            <h2 data-key="profile_header">CƠ SỞ VẬT CHẤT & SẢN XUẤT</h2>
+            
+            <div class="carousel-container factory-carousel">
+                <button class="prev-btn factory-prev-btn">❮</button>
+
+                <div class="carousel-slide factory-slide">
+                    <div class="slide-image"><img src="https://cdn.bitrix24.com/b28854747/landing/a0c/a0c66a817c8eec0e8d5966030d109a32/m1_2x.jpg" alt="Factory Image 1"></div>
+                    <div class="slide-image"><img src="https://cdn.bitrix24.com/b28854747/landing/85c/85cf817baa345678ce3d8b6b5f9f6edc/m2_2x.jpg" alt="Factory Image 2"></div>
+                    <div class="slide-image"><img src="https://cdn.bitrix24.com/b28854747/landing/d2c/d2c78e03d5b12d545735c0accb267236/m3_2x.jpg" alt="Factory Image 3"></div>
+                    <div class="slide-image"><img src="https://cdn.bitrix24.com/b28854747/landing/294/294b029b8d95520fbcef71d1ca201902/nm7_2x.jpg" alt="Factory Image 4"></div>
+                </div>
+
+                <button class="next-btn factory-next-btn">❯</button>
+            </div>
+            <div class="two-way-arrow">
+            </div>
+        </section>
+    </section>
+
+    <section id="contact">
+        <div class="container">
+            <h2 data-key="contact_header">Liên Hệ Với Chúng Tôi</h2>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <h4 data-key="contact_info_title">Thông tin liên hệ</h4>
+                    <p><i class="fa-solid fa-location-dot"></i> <span data-key="contact_address">TS27, KCN Tiên Sơn, phường Từ Sơn, thành phố Bắc Ninh</span></p>
+                    <p><i class="fa-solid fa-envelope"></i> info@phucthanhgroup.com</p>
+                    <p><i class="fa-solid fa-phone"></i> (+84)24 3976 3357</p>
+                    <p><i class="fa-solid fa-clock"></i> <span data-key="contact_hours">8:30 - 17:30 (Thứ 2 - Thứ 6), 8:30 - 12:00 (Thứ 7)</span></p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-bottom">
+              <p>&copy; <span id="year"></span> PHUC THANH VIETNAM JSC.</p>
+        </div>
+    </footer>
+
+    <a href="https://wa.me/84963466499?text=Xin%20ch%C3%A0o!%20T%C3%B4i%20quan%20t%C3%A2m%20%C4%91%E1%BA%BFn%20gi%E1%BA%A3i%20ph%C3%A1p%20kh%C3%AD%20b%C3%A1n%20d%E1%BA%ABn%20UHP." class="whatsapp-btn" >
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <div class="chatbot-toggle-btn" id="chatbot-toggle-btn">
+        <i class="fas fa-comment-dots"></i>
+    </div>
+
+    <div class="chatbot-container" id="chatbot-container">
+        <div class="chatbot-header">
+            <span id="chatbot-title">Chatbot Tư Vấn (Tiếng Việt)</span>
+            <i class="fas fa-times" id="chatbot-close-btn"></i>
+        </div>
+        <div class="chatbot-body" id="chatbot-body">
+            <div class="chat-message ai-message" id="initial-ai-message">Chào bạn! Tôi là trợ lý AI của Phúc Thành. Hiện ngôn ngữ giao tiếp đang là Tiếng Việt. Tôi có thể giúp gì cho bạn?</div>
+        </div>
+        <div class="chatbot-footer">
+            <input type="text" id="chatbot-input" class="chatbot-input" placeholder="Nhập tin nhắn...">
+            <button id="chatbot-send-btn" class="chatbot-send-btn"><i class="fas fa-paper-plane"></i></button>
+        </div>
+    </div>
+
+    <script>
+        // ====================================\
+        // CHATBOT LOGIC
+        // (Đã thay thế const bằng let để dễ chỉnh sửa)
+        // =====================================
+        
+        // 1. Định nghĩa các biến và hàm của Chatbot
+        let chatbotToggleBtn = document.getElementById('chatbot-toggle-btn');
+        let chatbotCloseBtn = document.getElementById('chatbot-close-btn');
+        let chatbotContainer = document.getElementById('chatbot-container');
+        let chatbotBody = document.getElementById('chatbot-body');
+        let chatbotInput = document.getElementById('chatbot-input');
+        let chatbotSendBtn = document.getElementById('chatbot-send-btn');
+        let chatbotTitle = document.getElementById('chatbot-title');
+        let initialAIMessage = document.getElementById('initial-ai-message');
+        
+        // Hàm tạo tin nhắn
+        function createMessage(text, sender) {
+            let messageDiv = document.createElement('div');
+            messageDiv.classList.add('chat-message');
+            messageDiv.classList.add(sender === 'user' ? 'user-message' : 'ai-message');
+            messageDiv.textContent = text;
+            chatbotBody.appendChild(messageDiv);
+            chatbotBody.scrollTop = chatbotBody.scrollHeight;
+        }
+
+        // Xử lý tin nhắn (Phản hồi AI giả lập có dịch ngôn ngữ)
+        function handleSendMessage() {
+            let message = chatbotInput.value.trim();
+            if (message === '') return;
+
+            createMessage(message, 'user');
+            chatbotInput.value = '';
+            
+            // Lấy ngôn ngữ hiện tại từ dropdown
+            let lang = document.getElementById('language-select').value;
+
+            setTimeout(() => {
+                let aiResponse = '';
+                
+                // Phản hồi giả lập dựa trên ngôn ngữ hiện tại
+                if (lang === 'vi') {
+                    aiResponse = 'Cảm ơn bạn đã quan tâm. Hãy liên hệ qua Email: info@phucthanhgroup.com hoặc Tel: (+84)24 3976 3357 để được tư vấn.';
+                } else if (lang === 'en') {
+                    aiResponse = 'Thank you for your interest. Please contact us via Email: info@phucthanhgroup.com or Tel: (+84)24 3976 3357 for consultation.';
+                } else if (lang === 'zh') {
+                    aiResponse = '感谢您的关注。如有任何疑问，请通过电子邮件info@phucthanhgroup.com或电话(+84)24 3976 3357与我们联系。';
+                } else if (lang === 'ko') {
+                    aiResponse = '관심 가져주셔서 감사합니다. 문의 사항은 이메일(info@phucthanhgroup.com) 또는 전화(+84)24 3976 3357로 연락 주시기 바랍니다.';
+                } else {
+                    aiResponse = 'Thank you. Please contact us through WhatsApp: +84963466499.';
+                }
+                
+                createMessage(aiResponse, 'ai');
+            }, 1000);
+        }
+
+        // 2. Định nghĩa hàm cập nhật Text Chatbot (sẽ được gọi từ setLanguage gốc)
+        function updateChatbotText(lang) {
+            // Lấy các bản dịch từ object translations
+            let welcomeMessage = translations[lang]['chatbot_welcome_message'];
+            let inputPlaceholder = translations[lang]['chatbot_input_placeholder'];
+            let titleText = translations[lang]['chatbot_title'];
+
+            // Nếu Chatbot đang mở, cập nhật nội dung
+            if (chatbotContainer.style.display === 'flex') {
+                initialAIMessage.innerHTML = welcomeMessage;
+                chatbotInput.placeholder = inputPlaceholder;
+                chatbotTitle.textContent = titleText;
+                
+                // Xóa tất cả tin nhắn cũ (trừ tin nhắn chào mừng đã được cập nhật)
+                while (chatbotBody.children.length > 1) {
+                    chatbotBody.removeChild(chatbotBody.lastChild);
+                }
+            }
+        }
+
+        // Toggle Chatbot Visibility
+        chatbotToggleBtn.addEventListener('click', () => {
+            let isVisible = chatbotContainer.style.display === 'flex';
+            chatbotContainer.style.display = isVisible ? 'none' : 'flex';
+            
+            if (!isVisible) {
+                 // Luôn cập nhật text chatbot khi mở
+                updateChatbotText(document.getElementById('language-select').value); 
+                chatbotInput.focus();
+            }
+        });
+
+        // Close Chatbot
+        chatbotCloseBtn.addEventListener('click', () => {
+            chatbotContainer.style.display = 'none';
+        });
+
+        // Event listeners cho Chatbot
+        chatbotSendBtn.addEventListener('click', handleSendMessage);
+        chatbotInput.addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') {
+                handleSendMessage();
+            }
+        });
+    </script>
+    
+    <script>
+        // ====================================\
+        // TRANSLATION LOGIC
+        // (Đã thay thế const bằng let để dễ chỉnh sửa)
+        // =====================================
+        let translations = {
+            'vi': {
+                'nav_main': 'Trang Chủ',
+                'nav_products': 'Sản phẩm',
+                'nav_technology': 'Công nghệ',
+                'nav_profile': 'Hồ sơ',
+                'nav_contact': 'Liên hệ',
+                'hero_title': 'SEEING IS BELIEVING',
+                'hero_subtitle': 'Phúc Thành cung cấp khí N2O tinh khiết, chất lượng cao (5.5N - 6N), đáp ứng tiêu chuẩn nghiêm ngặt của ngành công nghiệp khí bán dẫn .',
+                'hero_cta': 'Tư Vấn Ngay',
+                'products_header': 'VỀ CHÚNG TÔI',
+                'prod_1_title': 'NHÀ MÁY ĐẦU TIÊN TẠI VIỆT NAM SẢN XUẤT ĐƯỢC KHÍ N2O VỚI ĐỘ TINH KHIẾT 99,9995%',
+                'prod_1_desc': 'Với mục tiêu theo đuổi chất lượng lý tưởng và nghiên cứu phát triển chuyên sâu, trở thành nhà sản xuất chuyên biệt N2O chất lượng cao, Phúc Thành đã trở thành công ty đầu tiên tại Việt Nam sản xuất hàng loạt thành công khí N2O tinh khiết.',
+                'prod_1_feature_1': 'Qui trình sản xuất an toàn',
+                'prod_1_feature_2': 'Được ứng dụng trong nhiều lĩnh vực: Thực phẩm, Bán dẫn, Pin năng lượng mặt trời (Solar),...',
+                'prod_2_title': 'ĐÁP ỨNG CÁC TIÊU CHUẨN VÀ CÓ ĐẦY ĐỦ GIẤY PHÉP CHẤT LƯỢNG',
+                'prod_2_desc': 'Chúng tôi luôn cô gắng cho ra những sản phẩm chất lượng và đạt yêu cầu của khách .',
+                'prod_2_feature_1': 'Giấy chứng nhận đăng ký đầu tư số 6550215785, cấp lần đầu ngày 02 tháng 07 năm 2019, cập nhật ngày 15 tháng 03 năm 2024 bởi Ban Quản lý các Khu công nghiệp Bắc Ninh',
+                'prod_2_feature_2': 'Giấy phép sản xuất, kinh doanh hóa chất hạn chế sản xuất, kinh doanh trong lĩnh vực công nghiệp, số 33/GP-BCT ngày 20/01/2020 của Bộ Công Thương',
+                'prod_3_title': 'HỢP TÁC VỚI NHỮNG ĐỐI TÁC HÀNG ĐẦU',
+                'prod_3_desc': 'Phúc Thành Việt Nam đã hợp tác chặt chẽ với các đối tác để đưa công nghệ tiên tiến vào hoạt động thông qua sự hợp tác chặt chẽ và bền bỉ.',
+                'prod_3_feature_1': 'Trong giai đoạn triển khai, Phúc Thành Việt Nam đã tin tưởng lựa chọn Sumjin Environmental System Technology (SEST) để đảm nhiệm việc chế tạo và lắp đặt thiết bị sản xuất N20.',
+                'prod_3_feature_2': 'Sản xuất những đơn hàng lớn cho đối tác hàng đầu như: LINDE, Nippon Sanso, SOL INDIA',
+                'tech_header': 'Cam Kết Chất Lượng & Công Nghệ',
+                'tech_slogan': 'Quy trình sản xuất của chúng tôi tuân thủ các tiêu chuẩn quốc tế nghiêm ngặt.<br> Việc kiểm soát chất lượng được thực hiện liên tục ở mọi giai đoạn của quy trình sản xuất.',
+                'cert_1_name': 'ISO 9001:2015',
+                'cert_1_desc': 'Giấy Chứng nhận Hệ thống Quản lý Chất lượng',
+                'cert_2_name': 'ISO 14001:2015',
+                'cert_2_desc': 'Giấy Chứng nhận Hệ thống Quản lý Môi trường',
+                'cert_3_name': 'ISO 45001:2018',
+                'cert_3_desc': 'Giấy Chứng nhận Hệ thống Quản lý An toàn và Sức khoẻ nghề nghiệp',
+                'cert_4_name': 'ISO 22000:2018',
+                'cert_4_desc': 'Giấy Chứng nhận Hệ thống Quản lý An toàn Thực phẩm',
+                'cert_5_name': 'HACCP',
+                'cert_5_desc': 'Giấy Chứng nhận Phân tích mối nguy và Kiểm soát điểm tới hạn',
+                'profile_header': 'CƠ SỞ VẬT CHẤT & SẢN XUẤT',
+                'contact_header': 'Liên Hệ Với Chúng Tôi',
+                'contact_info_title': 'Thông tin liên hệ',
+                'contact_address': 'TS27, KCN Tiên Sơn, phường Từ Sơn, thành phố Bắc Ninh',
+                'contact_hours': '8:30 - 17:30 (Thứ 2 - Thứ 6), 8:30 - 12:00 (Thứ 7)',
+                'contact_form_title': 'Gửi Yêu Cầu Tư Vấn',
+                'form_name_placeholder': 'Tên của bạn',
+                'form_email_placeholder': 'Email',
+                'form_subject_placeholder': 'Chủ đề',
+                'form_message_placeholder': 'Nội dung tin nhắn',
+                'form_submit_button': 'Gửi Tin Nhắn',
+                'footer_text': '&copy; PHUC THANH JSC.',
+                // CHATBOT KEYS
+                'chatbot_welcome_message': 'Chào bạn! Tôi là trợ lý AI của Phúc Thành. Hiện ngôn ngữ giao tiếp đang là Tiếng Việt. Tôi có thể giúp gì cho bạn?',
+                'chatbot_input_placeholder': 'Nhập tin nhắn...',
+                'chatbot_title': 'Chatbot Tư Vấn (Tiếng Việt)',
+            },
+            'en': {
+                'nav_main': 'Homepage',
+                'nav_products': 'Products',
+                'nav_technology': 'Technology',
+                'nav_profile': 'Profile',
+                'nav_contact': 'Contact',
+                'hero_title': 'SEEING IS BELIEVING',
+                'hero_subtitle': 'Phuc Thanh supplies high-purity N2O gas (5.5N - 6N), meeting the strict standards of the semiconductor gas industry.',
+                'hero_cta': 'Consult Now',
+                'products_header': 'ABOUT US',
+                'prod_1_title': 'THE FIRST FACTORY IN VIETNAM TO PRODUCE N2O GAS WITH 99.9995% PURITY',
+                'prod_1_desc': 'With the goal of pursuing ideal quality and deep R&D, becoming a specialized high-quality N2O manufacturer, Phuc Thanh has become the first company in Vietnam to successfully mass-produce high-purity N2O gas.',
+                'prod_1_feature_1': 'Safe and controlled manufacturing process',
+                'prod_1_feature_2': 'Applied across multiple industries: Food, Semiconductors, Solar energy (Solar), and more',
+                'prod_2_title': 'MEETS ALL STANDARDS AND HAS FULL QUALITY LICENSES',
+                'prod_2_desc': 'We always strive to deliver quality products that meet customer requirements.',
+                'prod_2_feature_1': 'Investment Registration Certificate No. 6550215785, first issued on July 2, 2019, updated on March 15, 2024 by Bac Ninh Industrial Zones Management Board',
+                'prod_2_feature_2': 'License for the production and trading of chemicals with restricted production and trading in the industrial sector, No. 33/GP-BCT dated January 20, 2020, issued by the Ministry of Industry and Trade.',
+                'prod_3_title': 'PARTNERING WITH LEADING PARTNERS',
+                'prod_3_desc': 'Phuc Thanh Vietnam has closely collaborated with partners to operationalize advanced technology through close and sustained cooperation.',
+                'prod_3_feature_1': 'During the implementation phase, Phuc Thanh Vietnam entrusted Sumjin Environmental System Technology (SEST) to undertake the manufacturing and installation of N2O production equipment.',
+                'prod_3_feature_2': 'Manufacturing large orders for leading partners such as: LINDE, Nippon Sanso, SOL INDIA',
+                'tech_header': 'Quality & Technology Commitment',
+                'tech_slogan': 'Our production process complies with strict international standards. <br> Quality control is carried out continuously at every stage of the production process.',
+                'cert_1_name': 'ISO 9001:2015',
+                'cert_1_desc': 'Quality Management System Certification',
+                'cert_2_name': 'ISO 14001:2015',
+                'cert_2_desc': 'Environmental Management System Certification',
+                'cert_3_name': 'ISO 45001:2018',
+                'cert_3_desc': 'Occupational Health and Safety Management System Certification',
+                'cert_4_name': 'ISO 22000:2018',
+                'cert_4_desc': 'Food Safety Management System Certification',
+                'cert_5_name': 'HACCP',
+                'cert_5_desc': 'Hazard Analysis and Critical Control Points Certification',
+                'profile_header': 'FACILITIES & PRODUCTION',
+                'contact_header': 'Contact Us',
+                'contact_info_title': 'Contact Information',
+                'contact_address': 'TS27, Tien Son Industrial Park, Tu Son Ward, Bac Ninh City',
+                'contact_hours': '8:30 - 17:30 (Mon - Fri), 8:30 - 12:00 (Sat)',
+                'contact_form_title': 'Send Consultation Request',
+                'form_name_placeholder': 'Your Name',
+                'form_email_placeholder': 'Email',
+                'form_subject_placeholder': 'Subject',
+                'form_message_placeholder': 'Message Content',
+                'form_submit_button': 'Send Message',
+                'footer_text': '&copy; PHUC THANH JSC.',
+                // CHATBOT KEYS
+                'chatbot_welcome_message': "Hello! I am Phuc Thanh's AI assistant. Communication language is now English. How can I help you?",
+                'chatbot_input_placeholder': 'Type a message...',
+                'chatbot_title': 'Consultation Chatbot (English)',
+            },
+            'zh': {
+                'nav_main': '主页',
+                'nav_products': '产品',
+                'nav_technology': '技术',
+                'nav_profile': '公司概况',
+                'nav_contact': '联系我们',
+                'hero_title': 'SEEING IS BELIEVING',
+                'hero_subtitle': '福盛提供高纯度N2O气体 (5.5N - 6N)，满足半导体气体行业的严格标准。',
+                'hero_cta': '立即咨询',
+                'products_header': '关于我们',
+                'prod_1_title': '越南第一家生产纯度为99.9995%的N2O气体的工厂',
+                'prod_1_desc': '福盛以追求理想质量和深度研发为目标，致力于成为专业的高质量N2O制造商。福盛成为越南第一家成功批量生产高纯度N2O气体的公司。',
+                'prod_1_feature_1': '安全可控的生产流程',
+                'prod_1_feature_2': '广泛应用于多个领域：食品、半导体、太阳能（Solar）等',
+                'prod_2_title': '符合所有标准并拥有完整的质量许可证',
+                'prod_2_desc': '我们始终致力于提供满足客户要求的高质量产品。',
+                'prod_2_feature_1': '投资登记证编号 6550215785，首次颁发于 2019 年 7 月 2 日，于 2024 年 3 月 15 日由北宁工业区管理委员会更新',
+                'prod_2_feature_2': '工业和贸易部于 2020 年 1 月 20 日颁发的第 33/GP-BCT 号工业和贸易部限制性生产和贸易化学品生产和贸易许可证。',
+                'prod_3_title': '与领先的合作伙伴合作',
+                'prod_3_desc': '福盛越南通过紧密和持续的合作，与合作伙伴密切配合，将先进技术投入运营。',
+                'prod_3_feature_1': '在实施阶段，福盛越南委托Sumjin环境系统技术（SEST）负责N2O生产设备的制造和安装。',
+                'prod_3_feature_2': '我们为 LINDE、Nippon Sanso 和 SOL INDIA 等领先合作伙伴生产大批量订单。',
+                'tech_header': '质量与技术承诺',
+                'tech_slogan': '我们的生产流程严格遵循国际标准。<br>生产过程的每个阶段都持续进行质量控制。',
+                'cert_1_name': 'ISO 9001:2015',
+                'cert_1_desc': '质量管理体系认证',
+                'cert_2_name': 'ISO 14001:2015',
+                'cert_2_desc': '环境管理体系认证',
+                'cert_3_name': 'ISO 45001:2018',
+                'cert_3_desc': '职业健康与安全管理体系认证',
+                'cert_4_name': 'ISO 22000:2018',
+                'cert_4_desc': '食品安全管理体系认证',
+                'cert_5_name': 'HACCP',
+                'cert_5_desc': '危害分析与关键控制点认证',
+                'profile_header': '设施与生产',
+                'contact_header': '联系我们',
+                'contact_info_title': '联系信息',
+                'contact_address': '北宁市慈山区前山工业园 TS27',
+                'contact_hours': '8:30 - 17:30 (周一至周五), 8:30 - 12:00 (周六)',
+                'contact_form_title': '发送咨询请求',
+                'form_name_placeholder': '您的姓名',
+                'form_email_placeholder': '电子邮件',
+                'form_subject_placeholder': '主题',
+                'form_message_placeholder': '消息内容',
+                'form_submit_button': '发送消息',
+                'footer_text': '&copy; PHUC THANH JSC. (福盛股份公司)',
+                // CHATBOT KEYS
+                'chatbot_welcome_message': '您好！我是福盛的 AI 助理。目前沟通语言是 中文。我能为您提供什么帮助？',
+                'chatbot_input_placeholder': '输入消息...',
+                'chatbot_title': '咨询聊天机器人 (中文)',
+            },
+            'ko': {
+                'nav_main': '홈페이지',
+                'nav_products': '제품',
+                'nav_technology': '기술',
+                'nav_profile': '회사 개요',
+                'nav_contact': '연락처',
+                'hero_title': 'SEEING IS BELIEVING',
+                'hero_subtitle': 'Phuc Thanh은 반도체 가스 산업의 엄격한 표준을 충족하는 고순도 N2O 가스(5.5N - 6N)를 공급합니다.',
+                'hero_cta': '지금 상담하세요',
+                'products_header': '회사 소개',
+                'prod_1_title': '베트남 최초로 99.9995% 순도의 N2O 가스를 생산하는 공장',
+                'prod_1_desc': '이상적인 품질 추구와 심층적인 R&D를 목표로 고품질 N2O 전문 제조업체가 된 Phuc Thanh은 베트남 최초로 고순도 N2O 가스를 성공적으로 양산하는 회사가 되었습니다.',
+                'prod_1_feature_1': '안전하고 체계적인 생산 공정',
+                'prod_1_feature_2': '식품, 반도체, 태양광 에너지(Solar) 등 다양한 산업 분야에 적용',
+                'prod_2_title': '모든 표준을 충족하며 완벽한 품질 라이선스 보유',
+                'prod_2_desc': '우리는 항상 고객 요구 사항을 충족하는 고품질 제품을 제공하기 위해 노력합니다.',
+                'prod_2_feature_1': '투자 등록증 번호 6550215785, 2019년 7월 2일 최초 발행, 2024년 3월 15일 박닌 산업단지 관리위원회에서 업데이트',
+                'prod_2_feature_2': '산업 부문에서 생산 및 거래가 제한된 화학물질의 생산 및 거래 허가, 2020년 1월 20일자 산업통상부 발행 허가번호 33/GP-BCT.',
+                'prod_3_title': '선도적인 파트너와 협력',
+                'prod_3_desc': 'Phuc Thanh Vietnam은 긴밀하고 지속적인 협력을 통해 파트너와 긴밀히 협력하여 첨단 기술을 운영하고 있습니다.',
+                'prod_3_feature_1': '구현 단계에서 Phuc Thanh Vietnam은 N2O 생산 장비의 제조 및 설치를 Sumjin Environmental System Technology (SEST)에 맡겼습니다.',
+                'prod_3_feature_2': '저희는 LINDE, Nippon Sanso, SOL INDIA와 같은 주요 파트너사를 위해 대량 주문을 생산합니다.',
+                'tech_header': '품질 및 기술 약속',
+                'tech_slogan': '당사의 생산 공정은 엄격한 국제 표준을 준수합니다. <br> 생산 공정의 모든 단계에서 지속적인 품질 관리가 이루어집니다.',
+                'cert_1_name': 'ISO 9001:2015',
+                'cert_1_desc': '품질경영시스템 인증',
+                'cert_2_name': 'ISO 14001:2015',
+                'cert_2_desc': '환경경영시스템 인증',
+                'cert_3_name': 'ISO 45001:2018',
+                'cert_3_desc': '산업안전보건경영시스템 인증',
+                'cert_4_name': 'ISO 22000:2018',
+                'cert_4_desc': '식품안전경영시스템 인증',
+                'cert_5_name': 'HACCP',
+                'cert_5_desc': '위해요소 분석 및 중요관리점 인증',
+                'profile_header': '시설 및 생산',
+                'contact_header': '문의하기',
+                'contact_info_title': '연락 정보',
+                'contact_address': '박닌시 투손구 티엔손 산업단지 TS27',
+                'contact_hours': '8:30 - 17:30 (월 - 금), 8:30 - 12:00 (토)',
+                'contact_form_title': '상담 요청 보내기',
+                'form_name_placeholder': '성함',
+                'form_email_placeholder': '이메일',
+                'form_subject_placeholder': '제목',
+                'form_message_placeholder': '메시지 내용',
+                'form_submit_button': '메시지 보내기',
+                'footer_text': '&copy; PHUC THANH JSC.',
+                // CHATBOT KEYS
+                'chatbot_welcome_message': '안녕하세요! 저는 Phuc Thanh의 AI 비서입니다. 현재 소통 언어는 한국어 입니다. 무엇을 도와드릴까요?',
+                'chatbot_input_placeholder': '메시지 입력...',
+                'chatbot_title': '상담 챗봇 (한국어)',
+            }
+        };
+
+        let languageSelect = document.getElementById('language-select');
+
+        // Bọc hàm setLanguage gốc để gọi updateChatbotText
+        let originalSetLanguage = function(lang) {
+            let elements = document.querySelectorAll('[data-key]');
+            
+            elements.forEach(element => {
+                let key = element.getAttribute('data-key');
+                let translation = translations[lang] ? translations[lang][key] : undefined;
+
+                if (translation) {
+                    // Handle input/textarea placeholders
+                    if (element.tagName === 'INPUT' || element.tagName === 'TEXTAREA') {
+                        element.placeholder = translation;
+                    } 
+                    // Handle button text (for the primary CTA)
+                    else if (element.tagName === 'A' && element.classList.contains('btn-primary')) {
+                        element.textContent = translation;
+                    }
+                    // Handle form submit button
+                    else if (element.tagName === 'BUTTON' && element.getAttribute('type') === 'submit') {
+                         element.textContent = translation;
+                    }
+                    // Handle all other text content (H1, H2, P, LI, SPAN)
+                    else {
+                        element.innerHTML = translation;
+                    }
+                } 
+                // Nếu không có bản dịch cho ngôn ngữ hiện tại, không làm gì cả.
+            });
+            // Cập nhật thuộc tính ngôn ngữ HTML
+            document.documentElement.lang = lang; 
+        };
+        
+        // Hàm setLanguage mới
+        function setLanguage(lang) {
+            originalSetLanguage(lang); // Gọi hàm gốc
+            // Gọi hàm chatbot mới đã được định nghĩa ở script block trên
+            if (typeof updateChatbotText === 'function') {
+                updateChatbotText(lang); 
+            }
+        }
+
+
+        // Event listener for language change
+        languageSelect.addEventListener('change', (event) => {
+            let selectedLang = event.target.value;
+            setLanguage(selectedLang);
+        });
+        
+        // ======================\
+        // CAROUSEL LOGIC - Cập nhật để hỗ trợ nhiều carousel
+        // (Đã thay thế const bằng let để dễ chỉnh sửa)
+        // ======================
+        function initializeCarousel(containerSelector, slideSelector, prevBtnSelector, nextBtnSelector) {
+            let container = document.querySelector(containerSelector);
+            if (!container) return;
+            
+            let slideContainer = container.querySelector(slideSelector);
+            let slides = slideContainer.querySelectorAll('.slide-image');
+            let prevBtn = container.querySelector(prevBtnSelector);
+            let nextBtn = container.querySelector(nextBtnSelector);
+            
+            let currentSlide = 0;
+            let totalSlides = slides.length;
+            // Tính toán chiều rộng trượt: (100 / số lượng ảnh)
+            let slideWidth = 100 / totalSlides; 
+
+            // Cập nhật vị trí của slide
+            function updateSlide() {
+                // Tính toán vị trí dịch chuyển (-0%, -25%, -50%, ...)
+                let offset = -currentSlide * slideWidth;
+                slideContainer.style.transform = `translateX(${offset}%)`;
+            }
+
+            // Chức năng chuyển sang slide TIẾP THEO
+            if (nextBtn) {
+                nextBtn.addEventListener('click', () => {
+                    currentSlide++;
+                    if (currentSlide >= totalSlides) {
+                        currentSlide = 0; // Quay về ảnh đầu tiên khi hết
+                    }
+                    updateSlide();
+                });
+            }
+
+            // Chức năng chuyển sang slide TRƯỚC ĐÓ
+            if (prevBtn) {
+                prevBtn.addEventListener('click', () => {
+                    currentSlide--;
+                    if (currentSlide < 0) {
+                        currentSlide = totalSlides - 1; // Quay về ảnh cuối cùng khi lùi
+                    }
+                    updateSlide();
+                });
+            }
+
+            // Khởi tạo vị trí slide ban đầu
+            updateSlide();
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            // Khởi tạo Carousel Cơ sở vật chất (Profile/Factory)
+            initializeCarousel(
+                '.factory-carousel', 
+                '.factory-slide', 
+                '.factory-prev-btn', 
+                '.factory-next-btn'
+            );
+            
+            // Khởi tạo ngôn ngữ ban đầu
+            let initialLang = languageSelect.value;
+            setLanguage(initialLang);
+        });
+        document.getElementById("year").textContent = new Date().getFullYear();
+
+        let certIndex = 0;
+const certSlide = document.querySelector('.cert-slide');
+const certTotal = document.querySelectorAll('.slide-item').length;
+
+function moveCertSlide(step) {
+    certIndex = (certIndex + step + certTotal) % certTotal;
+    certSlide.style.transform = `translateX(-${certIndex * 20}%)`;
+}
+
+document.querySelector('.cert-prev').onclick = () => moveCertSlide(-1);
+document.querySelector('.cert-next').onclick = () => moveCertSlide(1);
+
+// Auto run
+setInterval(() => moveCertSlide(1), 4000);
+    </script>
+
+</body>
+</html>
